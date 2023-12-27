@@ -1,13 +1,16 @@
 This is a fork of Lk2nd (Little kernel secondary bootloader) With fixes applied for Lumia 950 (msm8992) and Lumia 950XL (msm8994).
 Compiling:
 /*
-* Your warranty is void.
-* I am not responsible for bricked devices, dead SD cards, thermonuclear war,
-* or you getting fired because the alarm app failed.
-* Please do some research if you have any concerns about features included
-* in the products you find here before flashing it!
-* YOU are choosing to make these modifications.
-*/
+Your warranty is void.
+I am not responsible for bricked devices, dead SD cards, thermonuclear war,
+or you getting fired because the alarm app failed.
+Please do some research if you have any concerns about features included
+in the products you find here before flashing it!
+YOU are choosing to make these modifications.
+
+
+
+
 Clone the repository with:
 1.Create a folder with a name of your choice
 2.Open a terminal/cd in it
