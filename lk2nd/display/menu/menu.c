@@ -99,9 +99,9 @@ static uint16_t wait_key(void)
 
 #define xstr(s) str(s)
 #define str(s) #s
-
+extern int boot_into_recovery;
 static void opt_reboot(void)     { reboot_device(0); }
-static void opt_recoery(void)    { reboot_device(RECOVERY_MODE); }
+static void opt_recoery(void)    { boot_into_recovery = 1; }
 static void opt_bootloader(void) { reboot_device(FASTBOOT_MODE); }
 static void opt_edl(void)        { reboot_device(EMERGENCY_DLOAD); }
 static void opt_shutdown(void)   { shutdown_device(); }
