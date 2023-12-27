@@ -1,6 +1,33 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /* Copyright (c) 2023 Nikita Travkin <nikita@trvn.ru> */
+#include <app.h>
+#include <debug.h>
+#include <arch/arm.h>
+#include <string.h>
+#include <stdlib.h>
+#include <limits.h>
 
+#include <arch/ops.h>
+
+#include <dev/flash.h>
+#include <dev/flash-ubi.h>
+#include <lib/ptable.h>
+#include <baseband.h>
+#include <target.h>
+#include <mmc.h>
+#include <partition_parser.h>
+#include <ab_partition_parser.h>
+#include <platform.h>
+#include <crypto_hash.h>
+#include <malloc.h>
+#include <boot_stats.h>
+#include <platform/iomap.h>
+#include <boot_device.h>
+#include <image_verify.h>
+#include <decompress.h>
+#include <platform/timer.h>
+#include <sys/types.h>
+#include <boot_device.h>
 #include <stdlib.h>
 #include <string.h>
 #include <config.h>
@@ -10,12 +37,14 @@
 #include <dev/fbcon.h>
 #include <sys/types.h>
 #include <kernel/thread.h>
-
+#include <bootimg.h>
 #include <lk2nd/util/minmax.h>
 #include <lk2nd/device/keys.h>
 #include <lk2nd/device.h>
 #include <lk2nd/version.h>
 #include <lk2nd/menu.h>
+#include <boot.h>
+
 
 #define FONT_WIDTH	(5+1)
 #define FONT_HEIGHT	12
@@ -99,7 +128,7 @@ static uint16_t wait_key(void)
 
 #define xstr(s) str(s)
 #define str(s) #s
-extern int boot_into_recovery;
+extern unsigned boot_into_recovery;
 static void opt_reboot(void)     { reboot_device(0); }
 static void opt_recoery(void)    { boot_into_recovery = 1; }
 static void opt_bootloader(void) { reboot_device(FASTBOOT_MODE); }
