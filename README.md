@@ -9,7 +9,7 @@ by providing:
 
   - **A unified boot and flashing interface** (Android Fastboot), independent of
     device-specific modifications made to the boot chain (e.g. the proprietary
-    flashing interface on Samsung devices)
+    flashing interface on Samsung, Lumia devices)
   - **Automatic device and hardware detection** (e.g. display panels, batteries, ...)
   - **Additional bootloader features** (e.g. file system boot, booting from SD card)
   - **Additional firmware features** (e.g. booting secondary CPU cores if the firmware
